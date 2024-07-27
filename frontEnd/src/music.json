@@ -1,0 +1,13 @@
+[
+    { "title": "Bad Habit", "subtitle": "Ed Sheeran", "src": "/audio/Bad Habits.mp3", "imgSrc":"/assets/badHabit.jpg"},
+    { "title": "Faded",  "subtitle": "Alan Walker", "src": "/audio/Faded.mp3", "imgSrc":"/assets/faded.jpg" },
+    { "title": "Hey Mama",  "subtitle": "David Guetta ft. Nicki Minaj", "src": "/audio/Hey Mama.mp3", "imgSrc":"/assets/heymama.jpg"},
+    { "tile": "Inferno",  "subtitle": "Sub Urban & Bella Poarch", "src": "/audio/inferno.mp3", "imgSrc":"/assets/inferno.jpg"},
+    { "title": "Lamour De Ma Vie",  "subtitle": "Billie Eilish", "src": "/audio/lamour.mp3", "imgSrc":"/assets/lamour.jpg"},
+    { "title": "Light Switch",  "subtitle": "Charlie Puth", "src": "/audio/light switch.mp3", "imgSrc":"/assets/lightswitch.jpg"},
+    { "title": "Mind Games",  "subtitle": "Sickick", "src": "/audio/mind games.mp3", "imgSrc":"/assets/mindgame.jpg"},
+    { "title": "On My Way",  "subtitle": "Alan Walker", "src": "/audio/On My Way.mp3", "imgSrc":"/assets/on_my_way.jpg"},
+    { "title": "Save Your Tears",  "subtitle": "The Weeknd", "src": "/audio/Save Your Tears.mp3", "imgSrc":"/assets/saveyourtear.jpg"},
+    { "title": "Shape Of You",  "subtitle": "Ed Sheeran", "src": "/audio/Shape Of You.mp3", "imgSrc":"/assets/shapeofyou.jpg"},
+    { "title": "The Motto",  "subtitle": "Ava Max", "src": "/audio/The Motto.mp3", "imgSrc":"/assets/motto.jpg"}
+]

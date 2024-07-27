@@ -1,0 +1,5 @@
+[
+    { "title": "Bad Habit", "subtitle": "Ed Sheeran", "src": "/audio/Bad Habits.mp3", "imgSrc":"/assets/badHabit.jpg"},
+    { "title": "Faded",  "subtitle": "Alan Walker", "src": "/audio/Faded.mp3", "imgSrc":"/assets/faded.jpg" },
+    { "title": "Hey Mama",  "subtitle": "David Guetta ft. Nicki Minaj", "src": "/audio/Hey Mama.mp3", "imgSrc":"/assets/heymama.jpg"}
+]
