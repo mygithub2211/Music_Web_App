@@ -1,4 +1,4 @@
-require("dotenv).config(); // Load dotenv at the very beginning
+require("dotenv").config(); // Load dotenv at the very beginning
 
 const express = require("express");
 const mongoose = require("mongoose");
