@@ -2,25 +2,26 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SongItem from "../SongItem";
 import MusicPlayer from "../MusicPlayer";
+import apiUrl from "../api"; // Import the API URL
 
 function SongList2({ newSong }) {
-    // **_State to hold the list of songs._**
+    // State to hold the list of songs.
     const [songs, setSongs] = useState([]);
-    // **_State to hold the currently selected song._**
+    // State to hold the currently selected song.
     const [currentSong, setCurrentSong] = useState(null);
-    // **_State to hold the index of the currently selected song._**
+    // State to hold the index of the currently selected song.
     const [currentIndex, setCurrentIndex] = useState(null);
 
     useEffect(() => {
-        // **_Function to fetch songs from the server._**
+        // Function to fetch songs from the server.
         const fetchSongs = async () => {
             try {
-                // **_Make a GET request to fetch songs._**
-                const response = await axios.get("http://localhost:5000/my_songs");
-                // **_Update state with fetched songs._**
+                // Make a GET request to fetch songs.
+                const response = await axios.get(`${apiUrl}/my_songs`);
+                // Update state with fetched songs.
                 setSongs(response.data);
             } catch (err) {
-                // **_Handle any errors that occur during the fetch._**
+                // Handle any errors that occur during the fetch.
                 console.error("Failed to fetch songs", err);
             }
         };
@@ -30,30 +31,30 @@ function SongList2({ newSong }) {
 
     useEffect(() => {
         if (newSong) {
-            // **_Log new song addition for debugging._**
-            console.log('Adding new song to list:', newSong);
-            // **_Add new song to the existing list of songs._**
+            // Log new song addition for debugging.
+            console.log("Adding new song to list:", newSong);
+            // Add new song to the existing list of songs.
             setSongs((prevSongs) => [...prevSongs, newSong]);
         }
     }, [newSong]);
 
-    // **_Handler function to update the current song and its index._**
+    // Handler function to update the current song and its index.
     const handleSongSelect = (song, index) => {
         setCurrentSong(song);
         setCurrentIndex(index);
     };
 
-    // **_Handler function to skip to the previous or next song._**
+    // Handler function to skip to the previous or next song.
     const handleSkip = (direction) => {
-        if (direction === 'start') {
+        if (direction === "start") {
             if (currentIndex > 0) {
-                // **_Skip to the previous song._**
+                // Skip to the previous song.
                 setCurrentIndex(currentIndex - 1);
                 setCurrentSong(songs[currentIndex - 1]);
             }
-        } else if (direction === 'end') {
+        } else if (direction === "end") {
             if (currentIndex < songs.length - 1) {
-                // **_Skip to the next song._**
+                // Skip to the next song.
                 setCurrentIndex(currentIndex + 1);
                 setCurrentSong(songs[currentIndex + 1]);
             }
@@ -62,7 +63,7 @@ function SongList2({ newSong }) {
 
     return (
         <div>
-            {/* **_Container for the list of songs._** */}
+            {/* Container for the list of songs. */}
             <div id="pop_song2">
                 {songs.map((song, index) => (
                     <SongItem
@@ -76,7 +77,7 @@ function SongList2({ newSong }) {
                 ))}
             </div>
          
-            {/* **_Container for the music player._** */}
+            {/* Container for the music player. */}
             <div id="main_for_play_side">
                 <MusicPlayer song={currentSong} onSkip={handleSkip} />
             </div>

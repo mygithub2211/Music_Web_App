@@ -1,49 +1,50 @@
-import SongItem from "../SongItem"; // IMPORT SongItem COMPONENT
-import MusicPlayer from "../MusicPlayer"; // IMPORT MusicPlayer COMPONENT
-import axios from "axios"; // IMPORT AXIOS FOR HTTP REQUESTS
-import React, { useEffect, useState } from "react"; // IMPORT REACT AND HOOKS
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import SongItem from "../SongItem"; // Import SongItem component
+import MusicPlayer from "../MusicPlayer"; // Import MusicPlayer component
+import apiUrl from "../api"; // Import API URL from centralized file
 
 function SongList() {
-    // STATE TO HOLD SONGS DATA
+    // State to hold songs data
     const [songs, setSongs] = useState([]);
-    // STATE TO HOLD THE CURRENTLY SELECTED SONG
+    // State to hold the currently selected song
     const [currentSong, setCurrentSong] = useState(null);
-    // STATE TO HOLD THE INDEX OF THE CURRENT SONG
+    // State to hold the index of the current song
     const [currentIndex, setCurrentIndex] = useState(null);
 
-    // EFFECT HOOK TO FETCH SONGS DATA FROM SERVER
+    // Effect hook to fetch songs data from server
     useEffect(() => {
         const fetchSongs = async () => {
             try {
-                const response = await axios.get("http://localhost:5000/songs"); // MAKE HTTP GET REQUEST
-                setSongs(response.data); // UPDATE SONGS STATE WITH RESPONSE DATA
+                const response = await axios.get(`${apiUrl}/songs`); // Make HTTP GET request
+                setSongs(response.data); // Update songs state with response data
             } catch (err) {
-                console.error("Failed to fetch songs", err); // LOG ERROR IF REQUEST FAILS
+                console.error("Failed to fetch songs", err); // Log error if request fails
             }
         };
 
-        fetchSongs(); // CALL THE FETCH FUNCTION
-    }, []); // EMPTY DEPENDENCY ARRAY MEANS THIS EFFECT RUNS ONCE AFTER INITIAL RENDER
+        fetchSongs(); // Call the fetch function
+    }, []); // Empty dependency array means this effect runs once after initial render
 
-    // FUNCTION TO HANDLE SELECTING A SONG
+    // Function to handle selecting a song
     const handleSongSelect = (song, index) => {
-        setCurrentSong(song); // UPDATE CURRENT SONG STATE
-        setCurrentIndex(index); // UPDATE CURRENT INDEX STATE
+        setCurrentSong(song); // Update current song state
+        setCurrentIndex(index); // Update current index state
     };
 
-    // FUNCTION TO HANDLE SKIPPING SONGS
+    // Function to handle skipping songs
     const handleSkip = (direction) => {
-        if (direction === 'start') {
-            // PREVIOUS SONG
+        if (direction === "start") {
+            // Previous song
             if (currentIndex > 0) {
-                setCurrentIndex(currentIndex - 1); // DECREMENT INDEX
-                setCurrentSong(songs[currentIndex - 1]); // SET PREVIOUS SONG AS CURRENT
+                setCurrentIndex(currentIndex - 1); // Decrement index
+                setCurrentSong(songs[currentIndex - 1]); // Set previous song as current
             }
-        } else if (direction === 'end') {
-            // NEXT SONG
+        } else if (direction === "end") {
+            // Next song
             if (currentIndex < songs.length - 1) {
-                setCurrentIndex(currentIndex + 1); // INCREMENT INDEX
-                setCurrentSong(songs[currentIndex + 1]); // SET NEXT SONG AS CURRENT
+                setCurrentIndex(currentIndex + 1); // Increment index
+                setCurrentSong(songs[currentIndex + 1]); // Set next song as current
             }
         }
     };
@@ -51,26 +52,22 @@ function SongList() {
     return (
         <div>
             <div id="pop_song">
-                {/* MAP THROUGH SONGS ARRAY TO RENDER SongItem COMPONENTS */}
+                {/* Map through songs array to render SongItem components */}
                 {songs.map((song, index) => (
                     <SongItem
                         key={index}
-                        imgSrc={song.imgSrc} // PASS IMAGE SOURCE TO SongItem
-                        title={song.title} // PASS TITLE TO SongItem
-                        subtitle={song.subtitle} // PASS SUBTITLE TO SongItem
-                        src={song.src} // PASS AUDIO SOURCE TO SongItem
-                        onSelect={() => handleSongSelect(song, index)} // PASS SELECTION HANDLER TO SongItem
+                        imgSrc={song.imgSrc} // Pass image source to SongItem
+                        title={song.title} // Pass title to SongItem
+                        subtitle={song.subtitle} // Pass subtitle to SongItem
+                        src={song.src} // Pass audio source to SongItem
+                        onSelect={() => handleSongSelect(song, index)} // Pass selection handler to SongItem
                     />
                 ))}
-                
             </div>
             <div id="main_for_play_side">
-                    {/* RENDER MusicPlayer COMPONENT WITH CURRENT SONG AND SKIP HANDLER */}
-                    <MusicPlayer song={currentSong} onSkip={handleSkip} />
-                </div>
-        
-            
-            
+                {/* Render MusicPlayer component with current song and skip handler */}
+                <MusicPlayer song={currentSong} onSkip={handleSkip} />
+            </div>
         </div>
     );
 }

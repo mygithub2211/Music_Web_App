@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import apiUrl from "../api"; // Import the API URL
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -16,7 +17,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/register", formData);
+      const res = await axios.post(`${apiUrl}/register`, formData);
       console.log(res.data);
     } catch (err) {
       console.error(err);

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import readLoveHeart from "/assets/readHeart.png";
 
 function MenuSide() {
-    // Set the initial active tab to 'home' to match the initial display state
+    // Set the initial active tab to "home" to match the initial display state
     const [activeTab, setActiveTab] = useState("home");
 
     useEffect(() => {

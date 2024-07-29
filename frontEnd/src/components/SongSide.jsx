@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 import SongContentHome from "./home/SongContentHome";
 import SongContentPlayList from "./playlist/SongContentPlayList";
 import panda from "/assets/panda.png";
+import apiUrl from "../api"; // Import the API URL
 
 function SongSide() {
-    const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery, setSearchQuery] = useState("");
     const [searchResults, setSearchResults] = useState([]);
     const [newSong, setNewSong] = useState(null);
     const [dropdownVisible, setDropdownVisible] = useState(false);
@@ -16,10 +17,10 @@ function SongSide() {
 
         if (query.length > 2) {
             try {
-                const response = await axios.get(`http://localhost:5000/search?query=${query}`);
+                const response = await axios.get(`${apiUrl}/search?query=${query}`);
                 setSearchResults(response.data);
             } catch (error) {
-                console.error('Error fetching search results:', error);
+                console.error("Error fetching search results:", error);
             }
         } else {
             setSearchResults([]);
@@ -28,27 +29,27 @@ function SongSide() {
 
     const handleAddSong = async (song) => {
         try {
-            console.log('Adding song:', song);
-            const response = await axios.post('http://localhost:5000/my_songs', {
+            console.log("Adding song:", song);
+            const response = await axios.post(`${apiUrl}/my_songs`, {
                 title: song.title,
                 subtitle: song.subtitle,
                 src: song.src,
                 imgSrc: song.imgSrc
             });
-            console.log('Response from adding song:', response);
+            console.log("Response from adding song:", response);
             if (response.status === 201) {
                 setNewSong(song);
-                console.log('New song added:', song);
+                console.log("New song added:", song);
             }
         } catch (error) {
-            console.error('Error adding song:', error);
+            console.error("Error adding song:", error);
         }
     };
 
     const handleLogout = () => {
         // Implement your logout logic here, such as clearing authentication tokens
-        console.log('Logging out...');
-        // Example: localStorage.removeItem('authToken');
+        console.log("Logging out...");
+        // Example: localStorage.removeItem("authToken");
         // Redirect to login page
         window.location.href = "/";
     };
@@ -65,7 +66,7 @@ function SongSide() {
                     <input 
                         type="text" 
                         id="search_input" 
-                        placeholder="Hello! Let's search..." 
+                        placeholder="Hello! Let's search..."
                         value={searchQuery} 
                         onChange={handleSearch} 
                     />
@@ -76,8 +77,8 @@ function SongSide() {
                                 className="search_result_item" 
                                 onClick={() => handleAddSong(song)}
                             >
-                                <h4 style={{ color: '#e6e6e6' }}>{song.title}</h4>
-                                <p style={{ color: '#b3b3b3' }}>{song.subtitle}</p>
+                                <h4 style={{ color: "#e6e6e6" }}>{song.title}</h4>
+                                <p style={{ color: "#b3b3b3" }}>{song.subtitle}</p>
                             </div>
                         ))}
                     </div>

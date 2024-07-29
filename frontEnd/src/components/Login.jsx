@@ -1,6 +1,6 @@
-// src/components/Login.jsx
 import React, { useState } from "react";
 import axios from "axios";
+import apiUrl from "../api"; // Import the API URL
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -15,7 +15,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/login", formData);
+      const res = await axios.post(`${apiUrl}/login`, formData);
       if (res.data.success) {
         // Redirect to Home page
         window.location.href = "/home";
@@ -53,13 +53,12 @@ function Login() {
           <button type="submit" id="loginButton">Login</button>
     
           <div className="register-link">
-            <p>Don't have an account?<a href="/register"> Register</a></p>
+            <p>Don"t have an account?<a href="/register"> Register</a></p>
           </div>
           
         </form>
       </div>
     </section>
-    
   );
 };
 
