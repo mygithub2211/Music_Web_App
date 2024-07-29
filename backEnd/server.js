@@ -1,3 +1,5 @@
+require('dotenv').config(); // Load dotenv at the very beginning
+
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -10,7 +12,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-mongoose.connect("mongodb+srv://new_user:Z0v4rz23993@mycluster.xazafns.mongodb.net/Ptran_Database", {});
+//mongoose.connect("mongodb+srv://new_user:Z0v4rz23993@mycluster.xazafns.mongodb.net/Ptran_Database", {});
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI, {});
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
