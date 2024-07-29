@@ -15,7 +15,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://music-web-app-server.vercel.app/login', formData);
+      const res = await axios.post(`${apiUrl}/login`, formData);
       if (res.data.success) {
         // Redirect to Home page
         window.location.href = "/home";
