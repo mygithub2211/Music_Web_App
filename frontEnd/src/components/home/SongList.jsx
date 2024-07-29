@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SongItem from "../SongItem"; // Import SongItem component
 import MusicPlayer from "../MusicPlayer"; // Import MusicPlayer component
-import apiUrl from "../api"; // Import API URL from centralized file
+import apiUrl from "../../api"; // Import API URL from centralized file
 
 function SongList() {
     // State to hold songs data
