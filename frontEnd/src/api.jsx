@@ -1,4 +1,4 @@
-const apiUrl = "https://music-web-app-server.vercel.app";
+const apiUrl = "https://music-web-app-server.vercel.app/";
 
 export async function fetchData(endpoint) {
   const response = await fetch(`${apiUrl}/${endpoint}`);
