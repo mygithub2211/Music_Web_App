@@ -127,6 +127,6 @@ app.get("/", (req, res) => {
 });
 
 // Start the server
-app.listen(process.env.PORT, () => {
+app.listen(5000, () => {
   console.log("Server is running on port 5000");
 });
