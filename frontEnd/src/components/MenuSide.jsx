@@ -40,7 +40,7 @@ function MenuSide() {
                 <h4 className="active"><span></span><i className="bi bi-music-note-beamed"></i> Playlist</h4>
             </div>
             <div id="Logo">
-                <img src={readLoveHeart} style={{width: "430px", marginRight: "20px"}} alt="Logo" />
+                <img src={readLoveHeart} style={{width: "400px", marginTop: "200px"}} alt="Logo" />
             </div>
         </div>
     );
