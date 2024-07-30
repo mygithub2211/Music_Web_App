@@ -295,8 +295,8 @@ nav {
   height: 260px; /* Increase height for larger image container */
   list-style-type: none;
   margin-right: 30px;
+  margin-top: 15px;
   transition: .3s linear;
-  margin-top: 20px;
 }
 
 #song_content_playlist #pop_song2 li:hover {
@@ -345,7 +345,6 @@ nav {
   color: rgb(199, 199, 199);
   margin-top: 5px;
 }
-
 
 
 /*Master Play*/
