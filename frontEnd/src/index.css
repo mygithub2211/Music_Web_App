@@ -296,10 +296,11 @@ nav {
   list-style-type: none;
   margin-right: 30px;
   transition: .3s linear;
+  margin-top: 20px;
 }
 
 #song_content_playlist #pop_song2 li:hover {
-  background: rgb(105, 105, 170, .1);
+  background: rgba(55, 55, 87, 0.1);
   border-radius: 10px;
 }
 
@@ -334,8 +335,9 @@ nav {
 
 #song_content_playlist #pop_song2 li h5 {
   font-size: 17px; /* Increase font size for better readability */
-  color: #e6e6e6;
+  color: #f3f3f3;
   text-align: left; /* Center the text */
+  margin-top: 20px;
 }
 
 #song_content_playlist #pop_song2 li h5 .subtitle {
