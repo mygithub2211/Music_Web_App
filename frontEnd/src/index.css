@@ -265,6 +265,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   color: #fff;
+  margin-top: 20px;
 }
 
 #song_content_playlist #popular_song_heading2 .bi {
