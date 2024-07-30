@@ -1,7 +1,4 @@
-body {
-  background: url("/assets/BG.png") no-repeat;
-  
-}
+
 
 header {
   display: flex;
@@ -22,16 +19,13 @@ header {
 }
 
 #menu_side {
-  background: transparent;
   color: #fff;
   width: 25%;
   /*margin-right: 2px;  Add a gap between the menu side and the song side */
   border-radius: 10px; /* Rounded corners */
-  backdrop-filter: blur(15px);
 }
 
 #song_side {
-  background: transparent;
   color: #fff;
   width: 75%; /* Adjust width to account for the margin */
   /*margin-left: 8px;  Add a gap between the song side and the menu side */
@@ -40,12 +34,11 @@ header {
 }
 
 #main_for_play_side {
-  background: transparent;
   width: 100%;
   height: 70px; /* Fixed height */
   box-sizing: border-box;
   border-radius: 10px; /* Rounded corners */
- 
+
 }
 
 /* MENU SIDE */
