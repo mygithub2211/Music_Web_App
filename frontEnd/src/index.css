@@ -148,12 +148,13 @@ nav {
 .dropdown-menu {
   position: absolute;
   background: #000;
+  border: 1px solid black;
   border-radius: 5px;
   width: 50px;
   padding: 1px;
 }
 .dropdown-menu:hover {
-  background: #fff;
+  background: #a7a7a7;
 }
 
 /* SONG_SIDE SONG_CONTENT_HOME*/
