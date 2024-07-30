@@ -31,6 +31,7 @@ header {
 
 #song_side {
   background: transparent;
+  color: #ffff;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   width: 75%; /* Adjust width to account for the margin */
   /*margin-left: 8px;  Add a gap between the song side and the menu side */
@@ -41,11 +42,11 @@ header {
 #main_for_play_side {
   background: transparent;
   width: 100%;
-  height: 80px; /* Fixed height */
-  border-radius: 10px; /* Rounded corners */
+  height: 70px; /* Fixed height */
   box-sizing: border-box;
+  border-radius: 10px; /* Rounded corners */
+ 
 }
-
 
 /* MENU SIDE */
 #menu_side h1 {
@@ -78,7 +79,7 @@ header {
 }
 
 #playlist h4 span::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 4px;
   height: 4px;
