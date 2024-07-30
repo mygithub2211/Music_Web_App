@@ -2,6 +2,16 @@ body {
   background: url("/assets/BGs.jpg") no-repeat;
   
 }
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+}
+
 #main_for_menu_and_song {
   display: flex;
   width: 100%;
@@ -12,7 +22,7 @@ body {
 
 #menu_side {
   background: transparent;
-  color: #b3b3b3;
+  color: #ffff;
   width: 25%;
   /*margin-right: 2px;  Add a gap between the menu side and the song side */
   border-radius: 10px; /* Rounded corners */
@@ -144,8 +154,6 @@ nav {
 .dropdown-menu:hover {
   background: #fff;
 }
-
-
 
 /* SONG_SIDE SONG_CONTENT_HOME*/
 #song_content_home {
@@ -384,7 +392,6 @@ header #main_for_play_side #playSide .wave .wave1:nth-child(3) {
   }
 }
 
-
 header #main_for_play_side #playSide img {
   margin-top: 10px;
   width: 50px;
@@ -536,9 +543,6 @@ header #main_for_play_side #playSide .vol .dot::before {
 }
 
 
-
-
-/************************************************/
 /* LOGIN AND REGISTRATION PAGE */
 * {
   margin: 0;
@@ -602,7 +606,6 @@ section {
   pointer-events: none;
   transition: .5s;
 }
-
 
 .input-box input:focus~label,
 .input-box input:valid~label {
@@ -687,8 +690,6 @@ section {
       border-radius: 0;
   }
 }
-
-/*************************************************************************************************************************/
 
 /* REGISTER PAGE */
 .register-box {
