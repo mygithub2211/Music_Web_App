@@ -1,5 +1,5 @@
 body {
-  background: url("/assets/BGs.jpg") no-repeat;
+  background: url("/assets/background.jpg") no-repeat;
   
 }
 
@@ -17,7 +17,7 @@ header {
   width: 100%;
   height: 100vh; /* Full viewport height */
   margin-bottom: 10px; /* Add a gap between the menu and song container and the play side */
-  background: url("/assets/BGs.jpg") no-repeat;
+  background: url("/assets/background.jpg") no-repeat;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -561,13 +561,13 @@ section {
   align-items: center;
   width: 100%px;
   height: 100vh;
-  background: url("/assets/BGs.jpg") no-repeat;
+  background: url("/assets/background.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-  animation: animateBG 5s linear infinite;
+  animation: animatebackground 5s linear infinite;
 }
 
-@keyframes animateBG {
+@keyframes animatebackground {
   100% {
       filter: hue-rotate(360deg);
   }
