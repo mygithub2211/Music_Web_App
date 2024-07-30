@@ -241,7 +241,7 @@ nav {
   font-size: 17px; /* Increase font size for better readability */
   color: #f3f3f3;
   text-align: left; /* Center the text */
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 #song_content_home #pop_song li h5 .subtitle {
