@@ -22,7 +22,7 @@ header {
 
 #menu_side {
   background: transparent;
-  color: #ffff;
+  color: #fff;
   width: 25%;
   /*margin-right: 2px;  Add a gap between the menu side and the song side */
   border-radius: 10px; /* Rounded corners */
@@ -31,7 +31,7 @@ header {
 
 #song_side {
   background: transparent;
-  color: #ffff;
+  color: #fff;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   width: 75%; /* Adjust width to account for the margin */
   /*margin-left: 8px;  Add a gap between the song side and the menu side */
@@ -70,7 +70,7 @@ header {
 }
 
 #playlist h4:hover {
-    color: #ffff;
+    color: #fff;
 }
 
 #playlist h4 span {
@@ -90,7 +90,7 @@ header {
 }
 
 #playlist h4:hover span::before {
-    border: 2px solid #ffff;
+    border: 2px solid #fff;
 }
 
 #playlist h4 .bi {
@@ -127,7 +127,7 @@ nav {
 #search .bi {
   font-size: 15px;
   padding: 5px;
-  color: #ffff;
+  color: #fff;
 }
 
 #search input {
@@ -135,7 +135,7 @@ nav {
   background: none;
   outline: none;
   border: none;
-  color: #ffff;
+  color: #fff;
   padding-left: 5px; /* Add padding to adjust text position */
 }
 
@@ -169,7 +169,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #ffff;
+  color: #fff;
 }
 
 #song_content_home #popular_song_heading .bi {
@@ -179,7 +179,7 @@ nav {
 }
 
 #song_content_home #popular_song_heading .bi:hover {
-  color: #ffff;
+  color: #fff;
 }
 
 #song_content_home #pop_song {
@@ -200,11 +200,12 @@ nav {
   height: 260px; /* Increase height for larger image container */
   list-style-type: none;
   margin-right: 30px;
+  margin-top: 15px;
   transition: .3s linear;
 }
 
 #song_content_home #pop_song li:hover {
-  background: rgb(105, 105, 170, .1);
+  background: rgba(55, 55, 87, 0.1);
   border-radius: 10px;
 }
 
@@ -215,7 +216,6 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
 }
 
 #song_content_home #pop_song li .img_play img {
@@ -230,7 +230,6 @@ nav {
   cursor: pointer;
   transition: .3s linear;
   opacity: 0;
-  
 }
 
 #song_content_home #pop_song li:hover .img_play .bi {
@@ -241,7 +240,7 @@ nav {
   font-size: 17px; /* Increase font size for better readability */
   color: #f3f3f3;
   text-align: left; /* Center the text */
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 #song_content_home #pop_song li h5 .subtitle {
@@ -264,7 +263,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #ffff;
+  color: #fff;
 }
 
 #song_content_playlist #popular_song_heading2 .bi {
@@ -274,7 +273,7 @@ nav {
 }
 
 #song_content_playlist #popular_song_heading2 .bi:hover {
-  color: #ffff;
+  color: #fff;
 }
 
 #song_content_playlist #pop_song2 {
@@ -325,7 +324,7 @@ nav {
   cursor: pointer;
   transition: .3s linear;
   opacity: 0;
-  color: #ffff;
+  color: #fff;
 }
 
 #song_content_playlist #pop_song2 li:hover .img_play .bi {
@@ -356,7 +355,7 @@ header #main_for_play_side #playSide{
 header #main_for_play_side #playSide .wave {
   width: 30px;
   height: 50px;
-  /*border: 1px solid #ffff;*/
+  /*border: 1px solid #fff;*/
   padding-bottom: 5px;
   display: flex;
   align-items: flex-end;
@@ -407,15 +406,15 @@ header #main_for_play_side #playSide .icon {
 }
 
 header #main_for_play_side #playSide .icon .bi-skip-start-fill:hover {
-  color: #ffff;
+  color: #fff;
 }
 
 header #main_for_play_side #playSide .icon .bi-skip-end-fill:hover {
-  color: #ffff;
+  color: #fff;
 }
 
 header #main_for_play_side #playSide .icon .bi-play-fill:hover {
-  color: #ffff;
+  color: #fff;
 }
 
 header #main_for_play_side #playSide .icon .bi {
@@ -466,11 +465,11 @@ header #main_for_play_side #playSide .bar .dot::before {
   position: absolute;
   width: 25px;
   height: 25px;
-  border: 1px solid #ffff;
+  border: 1px solid #fff;
   border-radius: 50%;
   left: -6px;
   top: -6px;
-  box-shadow: inset 0px 0px 3px #ffff;
+  box-shadow: inset 0px 0px 3px #fff;
 }
 
 
@@ -495,7 +494,7 @@ header #main_for_play_side #playSide .vol {
 
 header #main_for_play_side #playSide .vol .bi  {
   position: absolute;
-  color: #ffff;
+  color: #fff;
   font-size: 25px;
   margin-top: -12px;
   left: -30px;
@@ -537,11 +536,11 @@ header #main_for_play_side #playSide .vol .dot::before {
   position: absolute;
   width: 25px;
   height: 25px;
-  border: 1px solid #ffff;
+  border: 1px solid #fff;
   border-radius: 50%;
   left: -6px;
   top: -6px;
-  box-shadow: inset 0px 0px 3px #ffff;
+  box-shadow: inset 0px 0px 3px #fff;
 }
 
 
