@@ -170,6 +170,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   color: #fff;
+  margin-top: 15px;
 }
 
 #song_content_home #popular_song_heading .bi {
