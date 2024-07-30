@@ -23,6 +23,7 @@ header {
 #menu_side {
   background: transparent;
   color: #fff;
+  font-family: 'Times New Roman', Times, serif;
   width: 25%;
   /*margin-right: 2px;  Add a gap between the menu side and the song side */
   border-radius: 10px; /* Rounded corners */
