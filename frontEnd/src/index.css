@@ -18,12 +18,12 @@ header {
   height: 100vh; /* Full viewport height */
   margin-bottom: 10px; /* Add a gap between the menu and song container and the play side */
   background: url("/assets/BGs.jpg") no-repeat;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 #menu_side {
   background: transparent;
   color: #fff;
-  font-family: 'Times New Roman', Times, serif;
   width: 25%;
   /*margin-right: 2px;  Add a gap between the menu side and the song side */
   border-radius: 10px; /* Rounded corners */
@@ -33,7 +33,6 @@ header {
 #song_side {
   background: transparent;
   color: #fff;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   width: 75%; /* Adjust width to account for the margin */
   /*margin-left: 8px;  Add a gap between the song side and the menu side */
   border-radius: 10px; /* Rounded corners */
