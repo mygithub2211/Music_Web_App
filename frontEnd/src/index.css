@@ -147,7 +147,7 @@ nav {
 }
 .dropdown-menu {
   position: absolute;
-  background: #e6e6e6;
+  background: #000;
   border-radius: 5px;
   width: 50px;
   padding: 1px;
