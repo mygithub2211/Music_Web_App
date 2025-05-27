@@ -11,8 +11,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Connect to MongoDB
-//mongoose.connect("mongodb+srv://new_user:Z0v4rz23993@mycluster.xazafns.mongodb.net/Ptran_Database", {});
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {});
