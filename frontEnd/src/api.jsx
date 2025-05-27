@@ -1,7 +1,7 @@
 const apiUrl = "https://music-web-app-server.vercel.app";
 
 export async function fetchData(endpoint) {
-  const response = await fetch(`${apiUrl}/${endpoint}`);
+  const response = await fetch(`${apiUrl}/${endpoint}`)
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
