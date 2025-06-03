@@ -11,7 +11,7 @@ function SongSide(){
     const [newSong,setNewSong]=useState(null)
     const [dropdownVisible,setDropdownVisible]=useState(false)
 
-    const handleSearch=async(event)=>{
+    const handleSearch=async (event) => {
         const query=event.target.value
         setSearchQuery(query)
 
@@ -29,7 +29,7 @@ function SongSide(){
         }
     }
 
-    const handleAddSong=async(song)=>{
+    const handleAddSong=async (song) => {
         try{
             console.log('Adding song:',song)
             const response=await axios.post(`${apiUrl}/my_songs`,{
@@ -49,7 +49,7 @@ function SongSide(){
         }
     }
 
-    const handleLogout=()=>{
+    const handleLogout=() => {
         // implement your logout logic here,such as clearing authentication tokens
         console.log('Logging out...')
         // example: localStorage.removeItem('authToken');
@@ -57,7 +57,7 @@ function SongSide(){
         window.location.href='/'
     }
 
-    const toggleDropdown=()=>{
+    const toggleDropdown=() => {
         setDropdownVisible(!dropdownVisible)
     }
 
@@ -74,11 +74,11 @@ function SongSide(){
                         onChange={handleSearch} 
                     />
                     <div id='search_result'>
-                        {searchResults.map((song)=>(
+                        {searchResults.map((song) => (
                             <div 
                                 key={song._id} 
                                 className='search_result_item' 
-                                onClick={()=>handleAddSong(song)}
+                                onClick={() => handleAddSong(song)}
                             >
                                 <h4 style={{color:'#e6e6e6'}}>{song.title}</h4>
                                 <p style={{color:'#b3b3b3'}}>{song.subtitle}</p>

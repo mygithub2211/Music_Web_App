@@ -5,11 +5,11 @@ import apiUrl from '../api.jsx' // import the API URL
 function Login(){
   const [formData,setFormData]=useState({email:'',password:'',})
 
-  const handleChange=(e)=>{
+  const handleChange=(e) => {
     setFormData({ ...formData,[e.target.name]:e.target.value })
   }
 
-  const handleSubmit=async(e)=>{
+  const handleSubmit=async (e) => {
     e.preventDefault()
     try{
       const res=await axios.post(`${apiUrl}/login`,formData)

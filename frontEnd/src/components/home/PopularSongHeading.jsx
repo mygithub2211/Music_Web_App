@@ -1,18 +1,18 @@
 import {useEffect} from 'react'
 
 function PopularSongHeading(){
-    useEffect(()=>{
+    useEffect(() => {
         const popSong=document.getElementById('pop_song') // select the pop_song element
         const leftArrow=document.getElementById('pop_song_left')
         const rightArrow=document.getElementById('pop_song_right')
 
         // scroll functionality
-        leftArrow.addEventListener('click',()=>{
-            popSong.scrollLeft -= 200
+        leftArrow.addEventListener('click',() => {
+            popSong.scrollLeft -=200
         })
        
-        rightArrow.addEventListener('click',()=>{
-            popSong.scrollLeft += 200
+        rightArrow.addEventListener('click',() => {
+            popSong.scrollLeft +=200
         })
     },[])
 

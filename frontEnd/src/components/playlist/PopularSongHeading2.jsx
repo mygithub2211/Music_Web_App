@@ -7,11 +7,11 @@ function PopularSongHeading2(){
         const rightArrow=document.getElementById('pop_song_right2')
 
         // scroll functionality
-        leftArrow.addEventListener('click',()=>{
+        leftArrow.addEventListener('click',() => {
             popSong.scrollLeft -= 200
         })
        
-        rightArrow.addEventListener('click',()=>{
+        rightArrow.addEventListener('click',() => {
             popSong.scrollLeft += 200
         })
     },[])

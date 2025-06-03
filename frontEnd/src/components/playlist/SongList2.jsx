@@ -12,9 +12,9 @@ function SongList2({newSong}){
     // state to hold the index of the currently selected song.
     const [currentIndex,setCurrentIndex]=useState(null)
 
-    useEffect(()=>{
+    useEffect(() => {
         // function to fetch songs from the server.
-        const fetchSongs=async()=>{
+        const fetchSongs=async () => {
             try{
                 // make a get request to fetch songs.
                 const response=await axios.get(`${apiUrl}/my_songs`)
@@ -30,7 +30,7 @@ function SongList2({newSong}){
         fetchSongs()
     },[])
 
-    useEffect(()=>{
+    useEffect(() => {
         if(newSong){
             // log new song addition for debugging.
             console.log('adding new song to list:',newSong)
@@ -40,13 +40,13 @@ function SongList2({newSong}){
     },[newSong])
 
     // handler function to update the current song and its index.
-    const handleSongSelect=(song,index)=>{
+    const handleSongSelect=(song,index) => {
         setCurrentSong(song)
         setCurrentIndex(index)
     }
 
     // handler function to skip to the previous or next song.
-    const handleSkip=(direction)=>{
+    const handleSkip=(direction) => {
         if(direction === 'start'){
             if(currentIndex > 0){
                 // skip to the previous song.
@@ -66,7 +66,7 @@ function SongList2({newSong}){
         <div>
             {/* container for the list of songs. */}
             <div id='pop_song2'>
-                {songs.map((song,index)=>(
+                {songs.map((song,index) => (
                     <SongItem
                         key={index}
                         imgSrc={song.imgSrc}

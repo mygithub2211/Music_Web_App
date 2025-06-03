@@ -5,7 +5,7 @@ function MenuSide(){
     // set the initial active tab to 'home' to match the initial display state
     const [setActiveTab]=useState('home')
 
-    useEffect(()=>{
+    useEffect(() => {
         const homeTab=document.querySelector('#playlist h4:nth-of-type(1)')
         const playlistTab=document.querySelector('#playlist h4:nth-of-type(2)')
         const songContentHome=document.querySelector('#song_content_home')
@@ -15,7 +15,7 @@ function MenuSide(){
         songContentHome.style.display='block'
         songContentPlaylist.style.display='none'
 
-        homeTab.addEventListener('click',()=>{
+        homeTab.addEventListener('click',() => {
             // show home content,hide playlist content
             songContentHome.style.display='block'
             songContentPlaylist.style.display='none'
@@ -23,7 +23,7 @@ function MenuSide(){
             setActiveTab('home')
         })
 
-        playlistTab.addEventListener('click',()=>{
+        playlistTab.addEventListener('click',() => {
             // show playlist content,hide home content
             songContentHome.style.display='none'
             songContentPlaylist.style.display='block'

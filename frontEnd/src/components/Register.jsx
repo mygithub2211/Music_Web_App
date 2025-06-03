@@ -7,27 +7,27 @@ function Register(){
   const [successMessage,setSuccessMessage]=useState('') // state for success message
   const [errorMessage,setErrorMessage]=useState('') // state for error message
 
-  const handleChange=(e)=>{
+  const handleChange=(e) => {
     setFormData({ ...formData,[e.target.name]:e.target.value })
   }
 
-  const handleSubmit=async(e)=>{
+  const handleSubmit=async (e) => {
     e.preventDefault()
     try{
       const res=await axios.post(`${apiUrl}/register`,formData)
       if(res.status === 201){
         setSuccessMessage('Successfully registered your account')
-        setTimeout(()=>setSuccessMessage(''),3000) // clear message after 3 seconds
+        setTimeout(() => setSuccessMessage(''),3000) // clear message after 3 seconds
       }
       else{
         setErrorMessage('Failed to register. Please try again.')
-        setTimeout(()=>setErrorMessage(''),3000) // clear message after 3 seconds
+        setTimeout(() => setErrorMessage(''),3000) // clear message after 3 seconds
       }
     }
     catch(err){
       console.error(err)
       setErrorMessage('Failed to register. Please try again.')
-      setTimeout(()=>setErrorMessage(''),3000) // clear message after 3 seconds
+      setTimeout(() => setErrorMessage(''),3000) // clear message after 3 seconds
     }
   }
 

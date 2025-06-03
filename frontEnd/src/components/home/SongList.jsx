@@ -13,8 +13,8 @@ function SongList(){
     const [currentIndex,setCurrentIndex]=useState(null)
 
     // effect hook to fetch songs data from server
-    useEffect(()=>{
-        const fetchSongs=async()=>{
+    useEffect(() => {
+        const fetchSongs=async () => {
             try{
                 const response=await axios.get(`${apiUrl}/songs`) // make http get request
                 setSongs(response.data) // update songs state with response data
@@ -28,13 +28,13 @@ function SongList(){
     },[]) // empty dependency array means this effect runs once after initial render
 
     // function to handle selecting a song
-    const handleSongSelect=(song,index)=>{
+    const handleSongSelect=(song,index) => {
         setCurrentSong(song) // update current song state
         setCurrentIndex(index) // update current index state
     }
 
     // function to handle skipping songs
-    const handleSkip=(direction)=>{
+    const handleSkip=(direction) => {
         if(direction === 'start'){
             // previous song
             if(currentIndex > 0){
@@ -55,14 +55,14 @@ function SongList(){
         <div>
             <div id='pop_song'>
                 {/* map through songs array to render songitem components */}
-                {songs.map((song,index)=>(
+                {songs.map((song,index) => (
                     <SongItem
                         key={index}
                         imgSrc={song.imgSrc} // pass image source to songitem
                         title={song.title} // pass title to songitem
                         subtitle={song.subtitle} // pass subtitle to songitem
                         src={song.src} // pass audio source to songitem
-                        onSelect={()=>handleSongSelect(song,index)} // pass selection handler to songitem
+                        onSelect={() => handleSongSelect(song,index)} // pass selection handler to songitem
                     />
                 ))}
             </div>

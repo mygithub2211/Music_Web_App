@@ -12,16 +12,16 @@ function MusicPlayer({song,onSkip}){
     const progressRef=useRef(null) // reference to the progress bar input
 
     // update volume when it changes
-    useEffect(()=>{
+    useEffect(() => {
         if(audioRef.current){
             audioRef.current.volume=volume/100 // set the volume of the audio element
         }
     },[volume]) // dependency array: runs when volume state changes
 
     // update current time and duration
-    useEffect(()=>{
+    useEffect(() => {
         // function to update time and progress
-        const updateTime=()=>{
+        const updateTime=() => {
             if(audioRef.current){
                 setCurrentTime(audioRef.current.currentTime) // update current time
                 setDuration(audioRef.current.duration) // update duration
@@ -39,7 +39,7 @@ function MusicPlayer({song,onSkip}){
     },[song]) // dependency array: runs when the song changes
 
     // handle song change: load new song or default song
-    useEffect(()=>{
+    useEffect(() => {
         if(audioRef.current){
             // reset progress and current time when a new song is loaded
             setProgress(0)
@@ -47,7 +47,7 @@ function MusicPlayer({song,onSkip}){
             if(song){
                 // load specific song
                 audioRef.current.src=song.src // set the source of the audio element
-                audioRef.current.play().then(()=>{
+                audioRef.current.play().then(() => {
                     setIsPlaying(true) // set to playing if successful
                 }).catch(error => {
                     console.error('error playing the song:',error) 
@@ -62,7 +62,7 @@ function MusicPlayer({song,onSkip}){
     },[song]) // dependency array: runs when the song changes
 
     // handle play/pause toggle
-    const handlePlayPause=()=>{
+    const handlePlayPause=() => {
         if(audioRef.current){
             if(isPlaying){
                 audioRef.current.pause() // pause the song
@@ -79,14 +79,14 @@ function MusicPlayer({song,onSkip}){
     }
 
     // handle skipping to another song
-    const handleSkip=(direction)=>{
+    const handleSkip=(direction) => {
         if(onSkip){
             onSkip(direction) // call the onSkip function with direction
         }
     }
 
     // handle seeking within the current song
-    const handleSeek=(e)=>{
+    const handleSeek=(e) => {
         const newValue=e.target.value // get new seek position from input range
         if(audioRef.current){
             audioRef.current.currentTime=(newValue / 100) * audioRef.current.duration // update audio current time
@@ -95,12 +95,12 @@ function MusicPlayer({song,onSkip}){
     }
 
     // handle volume change
-    const handleVolumeChange=(e)=>{
+    const handleVolumeChange=(e) => {
         setVolume(e.target.value) // update volume state based on input value
     }
 
     // format time in minutes and seconds
-    const formatTime=(seconds)=>{
+    const formatTime=(seconds) => {
         const min=Math.floor(seconds / 60) // calculate minutes
         const sec=Math.floor(seconds % 60).toString().padStart(2,'0') // calculate seconds and format
         return `${min}:${sec}` // return time in mm:ss format
@@ -119,9 +119,9 @@ function MusicPlayer({song,onSkip}){
             <img src={song?song.imgSrc:onMyWay} alt={song?song.title:'default'}/>
             {/* play/pause and skip icons */}
             <div className='icon'>
-                <i className='bi bi-skip-start-fill' onClick={()=>handleSkip('start')}></i>
+                <i className='bi bi-skip-start-fill' onClick={() => handleSkip('start')}></i>
                 <i className={`bi ${isPlaying?'bi-pause-fill':'bi-play-fill'}`} onClick={handlePlayPause}></i>
-                <i className='bi bi-skip-end-fill' onClick={()=>handleSkip('end')}></i>
+                <i className='bi bi-skip-end-fill' onClick={() => handleSkip('end')}></i>
             </div>
 
             {/* display current time and duration */}
@@ -155,7 +155,7 @@ function MusicPlayer({song,onSkip}){
             {/* audio element */}
             <audio
                 ref={audioRef} // reference to the audio element
-                onLoadedMetadata={()=>{
+                onLoadedMetadata={() => {
                     if(audioRef.current){
                         setDuration(audioRef.current.duration) // update duration when metadata is loaded
                     }

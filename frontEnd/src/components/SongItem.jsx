@@ -1,6 +1,6 @@
 function SongItem(props){
     // function to handle click events
-    const handleClick=()=>{
+    const handleClick=() => {
         props.onSelect() // call the onSelect() passed in props
     } 
 
