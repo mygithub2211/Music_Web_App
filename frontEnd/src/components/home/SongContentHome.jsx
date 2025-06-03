@@ -1,13 +1,13 @@
-import PopularSongHeading  from "./PopularSongHeading";
-import SongList from "./SongList"; 
+import PopularSongHeading  from './PopularSongHeading.jsx'
+import SongList from './SongList.jsx'
 
-function SongContentHome() {
-    return (
-        <div id="song_content_home">
-            <PopularSongHeading />
-            <SongList />
+function SongContentHome(){
+    return(
+        <div id='song_content_home'>
+            <PopularSongHeading/>
+            <SongList/>
         </div>
-    );
+    )
 }
 
-export default SongContentHome;
+export default SongContentHome

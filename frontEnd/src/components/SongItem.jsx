@@ -1,28 +1,26 @@
-import React from "react";
+function SongItem(props){
+    // function to handle click events
+    const handleClick=()=>{
+        props.onSelect() // call the onSelect() passed in props
+    } 
 
-function SongItem(props) {
-    // FUNCTION TO HANDLE CLICK EVENTS
-    const handleClick = () => {
-        props.onSelect(); // CALL THE onSelect FUNCTION PASSED IN PROPS
-    }; 
-
-    return (
-        <li className="songItem" onClick={handleClick}>
-            {/* CONTAINER FOR THE IMAGE AND PLAY ICON */}
-            <div className="img_play">
-                {/* DISPLAY SONG IMAGE */}
-                <img src={props.imgSrc} alt={props.title} />
-                {/* PLAY ICON */}
-                <i className="bi playListPlay bi-play-circle-fill" id="8"></i>
+    return(
+        <li className='songItem' onClick={handleClick}>
+            {/* container for the image and play icon */}
+            <div className='img_play'>
+                {/* display song image */}
+                <img src={props.imgSrc} alt={props.title}/>
+                {/* play icon */}
+                <i className='bi playListPlay bi-play-circle-fill' id='8'></i>
             </div>
-            {/* DISPLAY SONG TITLE AND SUBTITLE */}
+            {/* display song title and subtitle */}
             <h5>
-                {props.title}<br />
-                {/* DISPLAY SUBTITLE UNDER THE TITLE */}
-                <div className="subtitle">{props.subtitle}</div>
+                {props.title}<br/>
+                {/* display subtitle under the titile */}
+                <div className='subtitle'>{props.subtitle}</div>
             </h5>
         </li>
-    );
+    )
 }
 
-export default SongItem;
+export default SongItem

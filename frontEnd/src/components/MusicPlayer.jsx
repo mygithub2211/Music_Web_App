@@ -1,167 +1,168 @@
-import React, { useState, useRef, useEffect } from "react";
-import onMyWay from "/assets/on_my_way.jpg";
-import defaultSong from "/audio/On My Way.mp3"; // IMPORT THE DEFAULT SONG
+import {useState,useRef,useEffect} from 'react'
+import onMyWay from '/assets/on_my_way.jpg'
+import defaultSong from '/audio/On My Way.mp3' // import the default song
 
-function MusicPlayer({ song, onSkip }) {
-    // STATE HOOKS
-    const [isPlaying, setIsPlaying] = useState(false); // TRACKS WHETHER THE SONG IS PLAYING
-    const [currentTime, setCurrentTime] = useState(0); // CURRENT PLAYBACK TIME
-    const [duration, setDuration] = useState(0); // DURATION OF THE CURRENT SONG
-    const [volume, setVolume] = useState(80); // CURRENT VOLUME LEVEL (0-100)
-    const [progress, setProgress] = useState(0); // TRACKS THE PROGRESS OF THE SONG AS A PERCENTAGE
-    const audioRef = useRef(null); // REFERENCE TO THE AUDIO ELEMENT
-    const progressRef = useRef(null); // REFERENCE TO THE PROGRESS BAR INPUT
+function MusicPlayer({song,onSkip}){
+    const [isPlaying,setIsPlaying]=useState(false) // tracks whether the song is playing
+    const [currentTime,setCurrentTime]=useState(0) // current playback time
+    const [duration,setDuration]=useState(0) // duration of the current song
+    const [volume,setVolume]=useState(80) // current volume level (0-100)
+    const [progress,setProgress]=useState(0) // tracks the progress of the song as a percentage
+    const audioRef=useRef(null) // reference to the audio element
+    const progressRef=useRef(null) // reference to the progress bar input
 
-    // UPDATE VOLUME WHEN IT CHANGES
-    useEffect(() => {
-        if (audioRef.current) {
-            audioRef.current.volume = volume / 100; // SET THE VOLUME OF THE AUDIO ELEMENT
+    // update volume when it changes
+    useEffect(()=>{
+        if(audioRef.current){
+            audioRef.current.volume=volume/100 // set the volume of the audio element
         }
-    }, [volume]); // DEPENDENCY ARRAY: RUNS WHEN THE VOLUME STATE CHANGES
+    },[volume]) // dependency array: runs when volume state changes
 
-    // UPDATE CURRENT TIME AND DURATION
-    useEffect(() => {
-        // FUNCTION TO UPDATE TIME AND PROGRESS
-        const updateTime = () => {
-            if (audioRef.current) {
-                setCurrentTime(audioRef.current.currentTime); // UPDATE CURRENT TIME
-                setDuration(audioRef.current.duration); // UPDATE DURATION
-                setProgress((audioRef.current.currentTime / audioRef.current.duration) * 100); // UPDATE PROGRESS BAR
+    // update current time and duration
+    useEffect(()=>{
+        // function to update time and progress
+        const updateTime=()=>{
+            if(audioRef.current){
+                setCurrentTime(audioRef.current.currentTime) // update current time
+                setDuration(audioRef.current.duration) // update duration
+                setProgress((audioRef.current.currentTime / audioRef.current.duration) * 100) // update progress bar
             }
-        };
-
-        const audioElement = audioRef.current;
-        if (audioElement) {
-            audioElement.addEventListener("timeupdate", updateTime); // LISTEN FOR TIMEUPDATES
-            return () => {
-                audioElement.removeEventListener("timeupdate", updateTime); // CLEANUP LISTENER ON UNMOUNT
-            };
         }
-    }, [song]); // DEPENDENCY ARRAY: RUNS WHEN THE SONG CHANGES
 
-    // HANDLE SONG CHANGE: LOAD NEW SONG OR DEFAULT SONG
-    useEffect(() => {
-        if (audioRef.current) {
-            // RESET PROGRESS AND CURRENT TIME WHEN A NEW SONG IS LOADED
-            setProgress(0);
-            setCurrentTime(0);
-            if (song) {
-                // LOAD SPECIFIC SONG
-                audioRef.current.src = song.src; // SET THE SOURCE OF THE AUDIO ELEMENT
-                audioRef.current.play().then(() => {
-                    setIsPlaying(true); // SET TO PLAYING IF SUCCESSFUL
+        const audioElement=audioRef.current
+        if(audioElement){
+            audioElement.addEventListener('timeupdate',updateTime) // listen for timeupdate
+            return() => {
+                audioElement.removeEventListener('timeupdate',updateTime) // cleanup listener on unmount
+            }
+        }
+    },[song]) // dependency array: runs when the song changes
+
+    // handle song change: load new song or default song
+    useEffect(()=>{
+        if(audioRef.current){
+            // reset progress and current time when a new song is loaded
+            setProgress(0)
+            setCurrentTime(0)
+            if(song){
+                // load specific song
+                audioRef.current.src=song.src // set the source of the audio element
+                audioRef.current.play().then(()=>{
+                    setIsPlaying(true) // set to playing if successful
                 }).catch(error => {
-                    console.error("Error playing the song:", error); // LOG ERROR IF PLAYBACK FAILS
-                });
-            } else {
-                // LOAD DEFAULT SONG IF NO SPECIFIC SONG IS PROVIDED
-                audioRef.current.src = defaultSong; // SET THE SOURCE TO THE DEFAULT SONG
-                setIsPlaying(false); // SET TO PAUSED
+                    console.error('error playing the song:',error) 
+                })
+            } 
+            else{
+                // load the default song if no specific song is provided
+                audioRef.current.src=defaultSong // set the source to the default song
+                setIsPlaying(false) // set to pause
             }
         }
-    }, [song]); // DEPENDENCY ARRAY: RUNS WHEN THE SONG CHANGES
+    },[song]) // dependency array: runs when the song changes
 
-    // HANDLE PLAY/PAUSE TOGGLE
-    const handlePlayPause = () => {
-        if (audioRef.current) {
-            if (isPlaying) {
-                audioRef.current.pause(); // PAUSE THE SONG
-                setIsPlaying(false); // UPDATE STATE TO REFLECT PAUSED
-            } else {
+    // handle play/pause toggle
+    const handlePlayPause=()=>{
+        if(audioRef.current){
+            if(isPlaying){
+                audioRef.current.pause() // pause the song
+                setIsPlaying(false) // update state to reflect paused
+            } 
+            else{
                 audioRef.current.play().then(() => {
-                    setIsPlaying(true); // PLAY THE SONG AND UPDATE STATE
+                    setIsPlaying(true) // play the song and update state
                 }).catch(error => {
-                    console.error("Error playing the song:", error); // LOG ERROR IF PLAYBACK FAILS
-                });
+                    console.error('error playing the song:',error) // log error if playback fails
+                })
             }
         }
-    };
+    }
 
-    // HANDLE SKIPPING TO ANOTHER SONG
-    const handleSkip = (direction) => {
-        if (onSkip) {
-            onSkip(direction); // CALL THE onSkip FUNCTION WITH DIRECTION
+    // handle skipping to another song
+    const handleSkip=(direction)=>{
+        if(onSkip){
+            onSkip(direction) // call the onSkip function with direction
         }
-    };
+    }
 
-    // HANDLE SEEKING WITHIN THE CURRENT SONG
-    const handleSeek = (e) => {
-        const newValue = e.target.value; // GET NEW SEEK POSITION FROM INPUT RANGE
-        if (audioRef.current) {
-            audioRef.current.currentTime = (newValue / 100) * audioRef.current.duration; // UPDATE AUDIO CURRENT TIME
-            setProgress(newValue); // UPDATE PROGRESS BAR POSITION
+    // handle seeking within the current song
+    const handleSeek=(e)=>{
+        const newValue=e.target.value // get new seek position from input range
+        if(audioRef.current){
+            audioRef.current.currentTime=(newValue / 100) * audioRef.current.duration // update audio current time
+            setProgress(newValue) // update progress bar position
         }
-    };
+    }
 
-    // HANDLE VOLUME CHANGE
-    const handleVolumeChange = (e) => {
-        setVolume(e.target.value); // UPDATE VOLUME STATE BASED ON INPUT VALUE
-    };
+    // handle volume change
+    const handleVolumeChange=(e)=>{
+        setVolume(e.target.value) // update volume state based on input value
+    }
 
-    // FORMAT TIME IN MINUTES AND SECONDS
-    const formatTime = (seconds) => {
-        const min = Math.floor(seconds / 60); // CALCULATE MINUTES
-        const sec = Math.floor(seconds % 60).toString().padStart(2, "0"); // CALCULATE SECONDS AND FORMAT
-        return `${min}:${sec}`; // RETURN TIME IN MM:SS FORMAT
-    };
+    // format time in minutes and seconds
+    const formatTime=(seconds)=>{
+        const min=Math.floor(seconds / 60) // calculate minutes
+        const sec=Math.floor(seconds % 60).toString().padStart(2,'0') // calculate seconds and format
+        return `${min}:${sec}` // return time in mm:ss format
+    }
 
-    return (
-        <div id="playSide">  
-            {/* WAVE ANIMATION */}
-            <div className="wave">
-                <div className="wave1"></div>
-                <div className="wave1"></div>
-                <div className="wave1"></div>
+    return(
+        <div id='playSide'>  
+            {/* wave animation */}
+            <div className='wave'>
+                <div className='wave1'></div>
+                <div className='wave1'></div>
+                <div className='wave1'></div>
             </div>
 
-            {/* DISPLAY CURRENT SONG IMAGE OR DEFAULT IMAGE */}
-            <img src={song ? song.imgSrc : onMyWay} alt={song ? song.title : "Default"} />
-            {/* PLAY/PAUSE AND SKIP ICONS */}
-            <div className="icon">
-                <i className="bi bi-skip-start-fill" onClick={() => handleSkip("start")}></i>
-                <i className={`bi ${isPlaying ? "bi-pause-fill" : "bi-play-fill"}`} onClick={handlePlayPause}></i>
-                <i className="bi bi-skip-end-fill" onClick={() => handleSkip("end")}></i>
+            {/* display current song image or default image */}
+            <img src={song?song.imgSrc:onMyWay} alt={song?song.title:'default'}/>
+            {/* play/pause and skip icons */}
+            <div className='icon'>
+                <i className='bi bi-skip-start-fill' onClick={()=>handleSkip('start')}></i>
+                <i className={`bi ${isPlaying?'bi-pause-fill':'bi-play-fill'}`} onClick={handlePlayPause}></i>
+                <i className='bi bi-skip-end-fill' onClick={()=>handleSkip('end')}></i>
             </div>
 
-            {/* DISPLAY CURRENT TIME AND DURATION */}
-            <span className="currentStart">{formatTime(currentTime)}</span>
+            {/* display current time and duration */}
+            <span className='currentStart'>{formatTime(currentTime)}</span>
 
-            {/* SONG PROGRESS BAR */}
-            <div className="bar">
+            {/* song progress bar */}
+            <div className='bar'>
                 <input
-                    type="range"
-                    min="0"
-                    max="100"
+                    type='range'
+                    min='0'
+                    max='100'
                     value={progress}
-                    onChange={handleSeek} // HANDLE SEEKING
-                    ref={progressRef} // REFERENCE TO THE INPUT ELEMENT
+                    onChange={handleSeek} // handle seeking
+                    ref={progressRef} // reference to the input element
                 />
-                <div className="bar2" style={{ width: `${progress}%` }}></div> {/* PROGRESS BAR */}
-                <div className="dot" style={{ left: `${progress}%` }}></div> {/* SEEK DOT */}
+                <div className='bar2' style={{width:`${progress}%`}}></div> {/* progress bar */}
+                <div className='dot' style={{left:`${progress}%`}}></div> {/* seek dot */}
             </div>
             
-            {/* DISPLAY REMAINING TIME */}
-            <span className="currentEnd">{formatTime(duration - currentTime)}</span>
+            {/* display remaining time */}
+            <span className='currentEnd'>{formatTime(duration-currentTime)}</span>
 
-            {/* VOLUME CONTROL */}
-            <div className="vol">
-                <i className="bi bi-volume-up-fill" id="vol_icon"></i>
-                <input type="range" min="0" max="100" value={volume} onChange={handleVolumeChange} /> {/* VOLUME INPUT */}
-                <div className="vol_bar" style={{ width: `${volume}%` }}></div> {/* VOLUME BAR */}
-                <div className="dot" style={{ left: `${volume}%` }}></div> {/* VOLUME DOT */}
+            {/* volume control */}
+            <div className='vol'>
+                <i className='bi bi-volume-up-fill' id='vol_icon'></i>
+                <input type='range' min='0' max='100' value={volume} onChange={handleVolumeChange}/> {/* volume input */}
+                <div className='vol_bar' style={{width:`${volume}%`}}></div> {/* volume bar */}
+                <div className='dot' style={{left:`${volume}%`}}></div> {/* volume dot */}
             </div>
 
-            {/* AUDIO ELEMENT */}
+            {/* audio element */}
             <audio
-                ref={audioRef} // REFERENCE TO THE AUDIO ELEMENT
-                onLoadedMetadata={() => {
-                    if (audioRef.current) {
-                        setDuration(audioRef.current.duration); // UPDATE DURATION WHEN METADATA IS LOADED
+                ref={audioRef} // reference to the audio element
+                onLoadedMetadata={()=>{
+                    if(audioRef.current){
+                        setDuration(audioRef.current.duration) // update duration when metadata is loaded
                     }
                 }}
             />
         </div>
-    );
+    )
 }
 
-export default MusicPlayer;
+export default MusicPlayer

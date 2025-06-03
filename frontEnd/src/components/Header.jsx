@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import MenuSide from "./MenuSide";
-import SongSide from "./SongSide";
+import {useState} from "react"
+import MenuSide from "./MenuSide.jsx"
+import SongSide from "./SongSide.jsx"
 
-function Header() {
-    const [currentSong, setCurrentSong] = useState(null);
+function Header(){
+    const [setCurrentSong]=useState(null);
 
-    return (
+    return(
         <header>
             <div id="main_for_menu_and_song">
-                <MenuSide />
-                <SongSide setCurrentSong={setCurrentSong} />
+                <MenuSide/>
+                <SongSide setCurrentSong={setCurrentSong}/>
             </div>
        
         </header>
-    );
+    )
 }
 
-export default Header;
+export default Header
