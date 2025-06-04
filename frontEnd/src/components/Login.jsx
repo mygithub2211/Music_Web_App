@@ -44,7 +44,7 @@ function Login() {
               onChange={handleChange}
               required
             />
-            <label>email</label>
+            <label>Email</label>
           </div>
 
           <div className='input-box'>
@@ -58,23 +58,23 @@ function Login() {
               onChange={handleChange}
               required
             />
-            <label>password</label>
+            <label>Password</label>
           </div>
 
           <div className='remember-forgot'>
             <label>
               <input type='checkbox' />
-              remember me
+              Remember me
             </label>
-            <a href='#'>forgot password</a>
+            <a href='#'>Forgot password</a>
           </div>
 
-          <button type='submit' id='loginButton'>login</button>
+          <button type='submit' id='loginButton'>Login</button>
 
           <div className='register-link'>
             <p>
-              don't have an account?
-              <a href='/register'> register</a>
+              Don't have an account?
+              <a href='/register'> Register</a>
             </p>
           </div>
         </form>
