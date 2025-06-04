@@ -1,810 +1,780 @@
-header{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  height:100vh; /* full viewport height */
-  box-sizing:border-box; /* ensure padding and border are included in the element's total width and height */
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
-#main_for_menu_and_song{
-  background:url('/assets/BG.png') no-repeat;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color:#fff;
-  display:flex;
-  width:100%;
-  height:100vh; /* full viewport height */
-  margin-bottom:10px; /* add a gap between the menu and song container and the play side */
+#main_for_menu_and_song {
+  background: url('/assets/BG.png') no-repeat;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #fff;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 10px;
 }
 
-#menu_side{
-  width:25%;
-  /*margin-right:2px;  add a gap between the menu side and the song side */
-  border-radius:10px; /* rounded corners */
+#menu_side {
+  width: 25%;
+  border-radius: 10px;
 }
 
-#song_side{
-  width:75%; /* adjust width to account for the margin */
-  /*margin-left:8px;  add a gap between the song side and the menu side */
-  border-radius:10px; /* rounded corners */
-  backdrop-filter:blur(15px);
+#song_side {
+  width: 75%;
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
 }
 
-#main_for_play_side{
-  width:100%;
-  height:70px; /* fixed height */
-  box-sizing:border-box;
-  border-radius:10px; /* rounded corners */
+#main_for_play_side {
+  width: 100%;
+  height: 70px;
+  box-sizing: border-box;
+  border-radius: 10px;
 }
 
-/* menu side */
-#menu_side h1{
-    font-size:25px;
-    margin:15px 0px 0px 20px;
-    font-weight:500;
+#menu_side h1 {
+  font-size: 25px;
+  margin: 15px 0px 0px 20px;
+  font-weight: 500;
 }
 
-#playlist{
-    margin:40px 0px 0px 20px;
+#playlist {
+  margin: 40px 0px 0px 20px;
 }
 
-#playlist h4{
-    font-size:20px;
-    font-weight:400;
-    padding-bottom:10px;
-    cursor:pointer;
-    display:flex;
-    align-items:center;
-    transition:.3s linear;
+#playlist h4 {
+  font-size: 20px;
+  font-weight: 400;
+  padding-bottom: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: .3s linear;
 }
 
-#playlist h4:hover{
-    color:#fff;
+#playlist h4:hover {
+  color: #fff;
 }
 
-#playlist h4 span{
-    position:relative;
-    margin-right:35px;
+#playlist h4 span {
+  position: relative;
+  margin-right: 35px;
 }
 
-#playlist h4 span::before{
-    content:'';
-    position:absolute;
-    width:4px;
-    height:4px;
-    border:2px solid #a7a7a7;
-    border-radius:50%;
-    top:-4px;
-    transition:.3s linear;
+#playlist h4 span::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border: 2px solid #a7a7a7;
+  border-radius: 50%;
+  top: -4px;
+  transition: .3s linear;
 }
 
-#playlist h4:hover span::before{
-    border:2px solid #fff;
+#playlist h4:hover span::before {
+  border: 2px solid #fff;
 }
 
-#playlist h4 .bi{
-    display:none;
+#playlist h4 .bi {
+  display: none;
 }
 
-#playlist .active span{
-    display:none;
+#playlist .active span {
+  display: none;
 }
 
-#playlist .active .bi{
-    display:flex;
-    margin-right:20px;
+#playlist .active .bi {
+  display: flex;
+  margin-right: 20px;
 }
 
-/* song side - search function */
-nav{
-  display:flex;
-  justify-content:flex-end;
-  margin-top:15px;
-  margin-right:30px;
+nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+  margin-right: 30px;
 }
 
-#search{
-  position:relative;
-  width:30%;
-  padding:10px 10px;
-  margin-right:50px;
-  border-radius:20px;
-  border:1px solid #242424; /* add border around the search bar */
-  background:#242424;
+#search {
+  position: relative;
+  width: 30%;
+  padding: 10px 10px;
+  margin-right: 50px;
+  border-radius: 20px;
+  border: 1px solid #242424;
+  background: #242424;
 }
 
-#search .bi{
-  font-size:15px;
-  padding:5px;
-  color:#fff;
+#search .bi {
+  font-size: 15px;
+  padding: 5px;
+  color: #fff;
 }
 
-#search input{
-  font-size:15px;
-  background:none;
-  outline:none;
-  border:none;
-  color:#fff;
-  padding-left:5px; /* add padding to adjust text position */
+#search input {
+  font-size: 15px;
+  background: none;
+  outline: none;
+  border: none;
+  color: #fff;
+  padding-left: 5px;
 }
 
-/* song side - drop down menu */
-#user{
-  cursor:pointer;
-  margin-right:30px;
-  font-size:12px;
-}
-.dropdown-menu{
-  position:absolute;
-  background:#000;
-  border:1px solid white;
-  border-radius:5px;
-  width:50px;
-  padding:1px;
-}
-.dropdown-menu:hover{
-  background:#a7a7a7;
+#user {
+  cursor: pointer;
+  margin-right: 30px;
+  font-size: 12px;
 }
 
-/* song_side song_content_home */
-#song_content_home{
-  width:90%;
-  height:auto;
-  margin:auto;
-  margin-top:15px;
-  overflow:hidden;
+.dropdown-menu {
+  position: absolute;
+  background: #000;
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 50px;
+  padding: 1px;
 }
 
-#song_content_home #popular_song_heading{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  color:#fff;
-  margin-top:20px;
+.dropdown-menu:hover {
+  background: #a7a7a7;
 }
 
-#song_content_home #popular_song_heading .bi{
-  cursor:pointer;
-  transition:.3s linear;
-  color:#a7a7a7;
+#song_content_home {
+  width: 90%;
+  height: auto;
+  margin: auto;
+  margin-top: 15px;
+  overflow: hidden;
 }
 
-#song_content_home #popular_song_heading .bi:hover{
-  color:#fff;
+#song_content_home #popular_song_heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  margin-top: 20px;
 }
 
-#song_content_home #pop_song{
-  width:100%;
-  height:75vh; /* increase height to fit larger image container */
-  /*height:auto;*/
-  display:flex;
-  overflow:auto;
-  scroll-behavior:smooth;
+#song_content_home #popular_song_heading .bi {
+  cursor: pointer;
+  transition: .3s linear;
+  color: #a7a7a7;
 }
 
-#song_content_home #pop_song::-webkit-scrollbar{
-  display:none;
+#song_content_home #popular_song_heading .bi:hover {
+  color: #fff;
 }
 
-#song_content_home #pop_song li{
-  min-width:180px; /* increase min-width for larger image container */
-  height:260px; /* increase height for larger image container */
-  list-style-type:none;
-  margin-right:30px;
-  margin-top:15px;
-  transition:.3s linear;
+#song_content_home #pop_song {
+  width: 100%;
+  height: 75vh;
+  display: flex;
+  overflow: auto;
+  scroll-behavior: smooth;
 }
 
-#song_content_home #pop_song li:hover{
-  background:rgba(55, 55, 87, 0.1);
-  border-radius:10px;
+#song_content_home #pop_song::-webkit-scrollbar {
+  display: none;
 }
 
-#song_content_home #pop_song li .img_play{
-  position:relative;
-  width:180px; /* increase width */
-  height:180px; /* increase height */
-  display:flex;
-  align-items:center;
-  justify-content:center;
+#song_content_home #pop_song li {
+  min-width: 180px;
+  height: 260px;
+  list-style-type: none;
+  margin-right: 30px;
+  margin-top: 15px;
+  transition: .3s linear;
 }
 
-#song_content_home #pop_song li .img_play img{
-  width:100%; /* increase image size to 100% */
-  height:100%; /* increase image size to 100% */
-  border-radius:10px;
+#song_content_home #pop_song li:hover {
+  background: rgba(55, 55, 87, 0.1);
+  border-radius: 10px;
 }
 
-#song_content_home #pop_song li .img_play .bi{
-  position:absolute;
-  font-size:50px;
-  cursor:pointer;
-  transition:.3s linear;
-  opacity:0;
+#song_content_home #pop_song li .img_play {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#song_content_home #pop_song li:hover .img_play .bi{
-  opacity:1;
+#song_content_home #pop_song li .img_play img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
 }
 
-#song_content_home #pop_song li h5{
-  font-size:17px; /* increase font size for better readability */
-  color:#f3f3f3;
-  text-align:left; /* center the text */
-  margin-top:20px;
+#song_content_home #pop_song li .img_play .bi {
+  position: absolute;
+  font-size: 50px;
+  cursor: pointer;
+  transition: .3s linear;
+  opacity: 0;
 }
 
-#song_content_home #pop_song li h5 .subtitle{
-  font-size:14px; /* adjust font size */
-  color:rgb(199, 199, 199);
-  margin-top:5px;
+#song_content_home #pop_song li:hover .img_play .bi {
+  opacity: 1;
 }
 
-/* song_side song_content_playlist */
-#song_content_playlist{
-  width:90%;
-  height:auto;
-  margin:auto;
-  margin-top:15px;
-  overflow:hidden;
+#song_content_home #pop_song li h5 {
+  font-size: 17px;
+  color: #f3f3f3;
+  text-align: left;
+  margin-top: 20px;
 }
 
-#song_content_playlist #popular_song_heading2{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  color:#fff;
-  margin-top:20px;
+#song_content_home #pop_song li h5 .subtitle {
+  font-size: 14px;
+  color: rgb(199, 199, 199);
+  margin-top: 5px;
 }
 
-#song_content_playlist #popular_song_heading2 .bi{
-  cursor:pointer;
-  transition:.3s linear;
-  color:#a7a7a7;
+#song_content_playlist {
+  width: 90%;
+  height: auto;
+  margin: auto;
+  margin-top: 15px;
+  overflow: hidden;
 }
 
-#song_content_playlist #popular_song_heading2 .bi:hover{
-  color:#fff;
+#song_content_playlist #popular_song_heading2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  margin-top: 20px;
 }
 
-#song_content_playlist #pop_song2{
-  width:100%;
-  height:75vh; /* increase height to fit larger image container */
-  /*height:auto;*/
-  display:flex;
-  overflow:auto;
-  scroll-behavior:smooth;
+#song_content_playlist #popular_song_heading2 .bi {
+  cursor: pointer;
+  transition: .3s linear;
+  color: #a7a7a7;
 }
 
-#song_content_playlist #pop_song2::-webkit-scrollbar{
-  display:none;
+#song_content_playlist #popular_song_heading2 .bi:hover {
+  color: #fff;
 }
 
-#song_content_playlist #pop_song2 li{
-  min-width:180px; /* increase min-width for larger image container */
-  height:260px; /* increase height for larger image container */
-  list-style-type:none;
-  margin-right:30px;
-  margin-top:15px;
-  transition:.3s linear;
+#song_content_playlist #pop_song2 {
+  width: 100%;
+  height: 75vh;
+  display: flex;
+  overflow: auto;
+  scroll-behavior: smooth;
 }
 
-#song_content_playlist #pop_song2 li:hover{
-  background:rgba(55, 55, 87, 0.1);
-  border-radius:10px;
+#song_content_playlist #pop_song2::-webkit-scrollbar {
+  display: none;
 }
 
-#song_content_playlist #pop_song2 li .img_play{
-  position:relative;
-  width:180px; /* increase width */
-  height:180px; /* increase height */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-top:10px;
+#song_content_playlist #pop_song2 li {
+  min-width: 180px;
+  height: 260px;
+  list-style-type: none;
+  margin-right: 30px;
+  margin-top: 15px;
+  transition: .3s linear;
 }
 
-#song_content_playlist #pop_song2 li .img_play img{
-  width:100%; /* increase image size to 100% */
-  height:100%; /* increase image size to 100% */
-  border-radius:10px;
+#song_content_playlist #pop_song2 li:hover {
+  background: rgba(55, 55, 87, 0.1);
+  border-radius: 10px;
 }
 
-#song_content_playlist #pop_song2 li .img_play .bi{
-  position:absolute;
-  font-size:50px;
-  cursor:pointer;
-  transition:.3s linear;
-  opacity:0;
-  color:#fff;
+#song_content_playlist #pop_song2 li .img_play {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
 }
 
-#song_content_playlist #pop_song2 li:hover .img_play .bi{
-  opacity:1;
+#song_content_playlist #pop_song2 li .img_play img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
 }
 
-#song_content_playlist #pop_song2 li h5{
-  font-size:17px; /* increase font size for better readability */
-  color:#f3f3f3;
-  text-align:left; /* center the text */
-  margin-top:20px;
+#song_content_playlist #pop_song2 li .img_play .bi {
+  position: absolute;
+  font-size: 50px;
+  cursor: pointer;
+  transition: .3s linear;
+  opacity: 0;
+  color: #fff;
 }
 
-#song_content_playlist #pop_song2 li h5 .subtitle{
-  font-size:14px; /* adjust font size */
-  color:rgb(199, 199, 199);
-  margin-top:5px;
+#song_content_playlist #pop_song2 li:hover .img_play .bi {
+  opacity: 1;
 }
 
-
-
-/*master play*/
-header #main_for_play_side #playSide{
-  display:flex;
-  align-items:center;
-  padding:0px 20px;
+#song_content_playlist #pop_song2 li h5 {
+  font-size: 17px;
+  color: #f3f3f3;
+  text-align: left;
+  margin-top: 20px;
 }
 
-header #main_for_play_side #playSide .wave{
-  width:30px;
-  height:50px;
-  /*border:1px solid #fff;*/
-  padding-bottom:5px;
-  display:flex;
-  align-items:flex-end;
-  margin-right:10px;
+#song_content_playlist #pop_song2 li h5 .subtitle {
+  font-size: 14px;
+  color: rgb(199, 199, 199);
+  margin-top: 5px;
 }
 
-header #main_for_play_side #playSide .wave .wave1{
-  width:3px;
-  height:15px;
-  margin-right:3px;
-  border-radius:10px 10px 0px 0px;
-  background:turquoise;
-  animation:wave .5s linear infinite;
+header #main_for_play_side #playSide {
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
 }
 
-header #main_for_play_side #playSide .wave .wave1:nth-child(2){
-  height:25px;
-  animation-delay:.4s;
+header #main_for_play_side #playSide .wave {
+  width: 30px;
+  height: 50px;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: flex-end;
+  margin-right: 10px;
 }
 
-header #main_for_play_side #playSide .wave .wave1:nth-child(3){
-  height:20px;
-  animation-delay:.8s;
+header #main_for_play_side #playSide .wave .wave1 {
+  width: 3px;
+  height: 15px;
+  margin-right: 3px;
+  border-radius: 10px 10px 0px 0px;
+  background: turquoise;
+  animation: wave .5s linear infinite;
 }
 
-@keyframes wave{
-  0%{
-    height:20px;
+header #main_for_play_side #playSide .wave .wave1:nth-child(2) {
+  height: 25px;
+  animation-delay: .4s;
+}
+
+header #main_for_play_side #playSide .wave .wave1:nth-child(3) {
+  height: 20px;
+  animation-delay: .8s;
+}
+
+@keyframes wave {
+  0% {
+    height: 20px;
   }
-  50%{
-    height:30px;
+  50% {
+    height: 30px;
   }
-  100%{
-    height:20px;
+  100% {
+    height: 20px;
   }
 }
 
-header #main_for_play_side #playSide img{
-  margin-top:10px;
-  width:50px;
-  height:50px;
+header #main_for_play_side #playSide img {
+  margin-top: 10px;
+  width: 50px;
+  height: 50px;
 }
 
-header #main_for_play_side #playSide .icon{
-  margin:15px 20px 0px 40px;
-  font-size:20px;
-  color:#a7a7a7;
+header #main_for_play_side #playSide .icon {
+  margin: 15px 20px 0px 40px;
+  font-size: 20px;
+  color: #a7a7a7;
 }
 
-header #main_for_play_side #playSide .icon .bi-skip-start-fill:hover{
-  color:#fff;
+header #main_for_play_side #playSide .icon .bi-skip-start-fill:hover,
+header #main_for_play_side #playSide .icon .bi-skip-end-fill:hover,
+header #main_for_play_side #playSide .icon .bi-play-fill:hover {
+  color: #fff;
 }
 
-header #main_for_play_side #playSide .icon .bi-skip-end-fill:hover{
-  color:#fff;
+header #main_for_play_side #playSide .icon .bi {
+  cursor: pointer;
+  outline: none;
+  padding: 1px 3px 0px 6px;
+  transition: .3s linear;
 }
 
-header #main_for_play_side #playSide .icon .bi-play-fill:hover{
-  color:#fff;
+header #main_for_play_side #playSide span {
+  margin-top: 15px;
+  color: #a7a7a7;
+  width: 50px;
+  font-size: 20px;
 }
 
-header #main_for_play_side #playSide .icon .bi{
-  cursor:pointer;
-  outline:none;
-  padding:1px 3px 0px 6px;
-  transition:.3s linear;
+/**************/
+header #main_for_play_side #playSide .bar {
+  position: relative;
+  width: 43%;
+  height: 5px;
+  border-radius: 10px;
+  background: #a7a7a7;
+  margin: 15px 15px 0px 2px;
 }
 
-header #main_for_play_side #playSide span{
-  margin-top:15px;
-  color:#a7a7a7;
-  width:50px;
-  font-size:20px;
+header #main_for_play_side #playSide .bar .bar2 {
+  position: absolute;
+  background: turquoise;
+  width: 0%;
+  height: 100%;
+  border-radius: 10px;
+  top: 0px;
 }
 
-header #main_for_play_side #playSide .bar{
-  position:relative;
-  width:43%;
-  height:5px;
-  border-radius:10px;
-  background:#a7a7a7;
-  margin:15px 15px 0px 2px;
+header #main_for_play_side #playSide .bar .dot {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #e6e6e6;
+  border-radius: 50%;
+  left: 0px;
+  top: -5px;
 }
 
-header #main_for_play_side #playSide .bar .bar2{
-  position:absolute;
-  background:turquoise;
-  width:0%;
-  height:100%;
-  border-radius:10px;
-  top:0px;
+header #main_for_play_side #playSide .bar .dot::before {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  left: -6px;
+  top: -6px;
+  box-shadow: inset 0px 0px 3px #fff;
 }
 
-header #main_for_play_side #playSide .bar .dot{
-  position:absolute;
-  width:15px;
-  height:15px;
-  background:#e6e6e6;
-  border-radius:50%;
-  left:0px;
-  top:-5px;
+header #main_for_play_side #playSide .bar input {
+  position: absolute;
+  width: 100%;
+  top: -6px;
+  cursor: pointer;
+  z-index: 99999999999999999999999999999999999999999;
+  transition: 3s linear;
+  opacity: 0;
 }
 
-header #main_for_play_side #playSide .bar .dot::before{
-  content:'';
-  position:absolute;
-  width:25px;
-  height:25px;
-  border:1px solid #fff;
-  border-radius:50%;
-  left:-6px;
-  top:-6px;
-  box-shadow:inset 0px 0px 3px #fff;
-}
-
-header #main_for_play_side #playSide .bar input{
-  position:absolute;
-  width:100%;
-  top:-6px;
-  cursor:pointer;
-  z-index:99999999999999999999999999999999999999999;
-  transition:3s linea;
-  opacity:0;
-}
-
-header #main_for_play_side #playSide .vol{
-  position:relative;
-  width:100px;
-  height:2px;
-  margin-left:50px;
-  margin-top:15px;
-  background:#a7a7a7;
+header #main_for_play_side #playSide .vol {
+  position: relative;
+  width: 100px;
+  height: 2px;
+  margin-left: 50px;
+  margin-top: 15px;
+  background: #a7a7a7;
 }
 
 header #main_for_play_side #playSide .vol .bi {
-  position:absolute;
-  color:#fff;
-  font-size:25px;
-  margin-top:-12px;
-  left:-30px;
+  position: absolute;
+  color: #fff;
+  font-size: 25px;
+  margin-top: -12px;
+  left: -30px;
 }
 
-header #main_for_play_side #playSide .vol input{
-  position:absolute;
-  width:100%;
-  top:-6px;
-  cursor:pointer;
-  z-index:99999999999999999999999999999999999999999;
-  transition:3s linear;
-  opacity:0;
+header #main_for_play_side #playSide .vol input {
+  position: absolute;
+  width: 100%;
+  top: -6px;
+  cursor: pointer;
+  z-index: 99999999999999999999999999999999999999999;
+  transition: 3s linear;
+  opacity: 0;
 }
 
-header #main_for_play_side #playSide .vol .vol_bar{
-  position:absolute;
-  background:turquoise;
-  width:0%;
-  height:100%;
-  border-radius:10px;
-  top:0px;
+header #main_for_play_side #playSide .vol .vol_bar {
+  position: absolute;
+  background: turquoise;
+  width: 0%;
+  height: 100%;
+  border-radius: 10px;
+  top: 0px;
 }
 
-header #main_for_play_side #playSide .vol .dot{
-  position:absolute;
-  width:15px;
-  height:15px;
-  background:#e6e6e6;
-  border-radius:50%;
-  left:0px;
-  top:-5px;
+header #main_for_play_side #playSide .vol .dot {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: #e6e6e6;
+  border-radius: 50%;
+  left: 0px;
+  top: -5px;
 }
 
-header #main_for_play_side #playSide .vol .dot::before{
-  content:'';
-  position:absolute;
-  width:25px;
-  height:25px;
-  border:1px solid #fff;
-  border-radius:50%;
-  left:-6px;
-  top:-6px;
-  box-shadow:inset 0px 0px 3px #fff;
+header #main_for_play_side #playSide .vol .dot::before {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  left: -6px;
+  top: -6px;
+  box-shadow: inset 0px 0px 3px #fff;
 }
 
-/*login and registration page*/
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial, Helvetica, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-section{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  width:100%px;
-  height:100vh;
-  background:url('/assets/BG.png') no-repeat;
-  background-size:cover;
-  background-position:center;
-  animation:animatebackground 5s linear infinite;
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%px;
+  height: 100vh;
+  background: url('/assets/BG.png') no-repeat;
+  background-size: cover;
+  background-position: center;
+  animation: animatebackground 5s linear infinite;
 }
 
-@keyframes animatebackground{
-  100%{
-      filter:hue-rotate(360deg);
+@keyframes animatebackground {
+  100% {
+    filter: hue-rotate(360deg);
   }
 }
 
-/*login page*/
-.login-box{
-  position:relative;
-  width:400px;
-  height:450px;
-  background:transparent;
-  border:2px solid rgba(255, 255, 255, 0.5);
-  border-radius:20px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  backdrop-filter:blur(15px);
+.login-box {
+  position: relative;
+  width: 400px;
+  height: 450px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
 }
 
-#loginH2{
-  font-size:2em;
-  color:white;
-  text-align:center; 
+#loginH2 {
+  font-size: 2em;
+  color: white;
+  text-align: center;
 }
 
-.input-box{
-  position:relative;
-  width:310px;
-  margin:30px 0;
-  border-bottom:2px solid white; 
+.input-box {
+  position: relative;
+  width: 310px;
+  margin: 30px 0;
+  border-bottom: 2px solid white;
 }
 
-.input-box label{
-  position:absolute;
-  top:50%;
-  left:5px;
-  transform:translateY(-50%);
-  font-size:1em;
-  color:white;
-  pointer-events:none;
-  transition:.5s;
+.input-box label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: white;
+  pointer-events: none;
+  transition: .5s;
 }
 
 .input-box input:focus~label,
-.input-box input:valid~label{
-  top:-5px;
+.input-box input:valid~label {
+  top: -5px;
 }
 
-.input-box input{
-  width:100%;
-  height:50px;
-  background:transparent;
-  border:none;
-  outline:none;
-  font-size:1em;
-  color:white;
-  padding:0 35px 0 5px; /* top right bottom left */
+.input-box input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: white;
+  padding: 0 35px 0 5px;
 }
 
-.input-box .icon{
-  position:absolute;
-  right:8px;
-  color:white;
-  font-size:1.2em;
-  line-height:57px;
+.input-box .icon {
+  position: absolute;
+  right: 8px;
+  color: white;
+  font-size: 1.2em;
+  line-height: 57px;
 }
 
-.remember-forgot{
-  margin:-15px 0 15px;
-  font-size:.9em;
-  color:white;
-  display:flex;
-  justify-content:space-between;
+.remember-forgot {
+  margin: -15px 0 15px;
+  font-size: .9em;
+  color: white;
+  display: flex;
+  justify-content: space-between;
 }
 
-.remember-forgot label input{
-  margin-right:3px;
+.remember-forgot label input {
+  margin-right: 3px;
 }
 
-.remember-forgot a{
-  color:white;
-  text-decoration:none;
+.remember-forgot a {
+  color: white;
+  text-decoration: none;
 }
 
-.remember-forgot a:hover{
-  text-decoration:underline;
+.remember-forgot a:hover {
+  text-decoration: underline;
 }
 
-#loginButton{
-  width:100%;
-  height:40px;
-  background:white;
-  border:none;
-  outline:none;
-  border-radius:40px;
-  cursor:pointer;
-  font-size:1em;
-  color:black;
-  font-weight:500;
+#loginButton {
+  width: 100%;
+  height: 40px;
+  background: white;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 1em;
+  color: black;
+  font-weight: 500;
 }
 
-.register-link{
-  font-size:.9em;
-  color:white;
-  text-align:center;
-  margin:25px 0 10px;
+.register-link {
+  font-size: .9em;
+  color: white;
+  text-align: center;
+  margin: 25px 0 10px;
 }
 
-.register-link p a{
-  color:white;
-  text-decoration:none;
-  font-weight:600;
+.register-link p a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.register-link p a:hover{
-  text-decoration:underline;
+.register-link p a:hover {
+  text-decoration: underline;
 }
 
-@media(max-width:360px){
-  .login-box{
-      width:100%;
-      height:100vh;
-      border:none;
-      border-radius:0;
+@media(max-width: 360px) {
+  .login-box {
+    width: 100%;
+    height: 100vh;
+    border: none;
+    border-radius: 0;
   }
 }
 
-/*register page*/
-.register-box{
-  position:relative;
-  width:500px;
-  height:550px;
-  background:transparent;
-  border:2px solid rgba(255, 255, 255, 0.5);
-  border-radius:20px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  backdrop-filter:blur(15px);
+.register-box {
+  position: relative;
+  width: 500px;
+  height: 550px;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
 }
 
-#registerH2{
-  font-size:2em;
-  color:white;
-  text-align:center; 
+#registerH2 {
+  font-size: 2em;
+  color: white;
+  text-align: center;
 }
 
-.input-box-register{
-  position:relative;
-  width:310px;
-  margin:30px 0;
-  border-bottom:2px solid white; 
+.input-box-register {
+  position: relative;
+  width: 310px;
+  margin: 30px 0;
+  border-bottom: 2px solid white;
 }
 
-.input-box-register label{
-  position:absolute;
-  top:50%;
-  left:5px;
-  transform:translateY(-50%);
-  font-size:1em;
-  color:white;
-  pointer-events:none;
-  transition:.5s;
+.input-box-register label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: white;
+  pointer-events: none;
+  transition: .5s;
 }
 
 .input-box-register input:focus~label,
-.input-box-register input:valid~label{
-  top:-5px;
+.input-box-register input:valid~label {
+  top: -5px;
 }
 
-.input-box-register input{
-  width:100%;
-  height:50px;
-  background:transparent;
-  border:none;
-  outline:none;
-  font-size:1em;
-  color:white;
-  padding:0 35px 0 5px; /* top right bottom left */
+.input-box-register input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  color: white;
+  padding: 0 35px 0 5px;
 }
 
-#registerButton{
-  width:100%;
-  height:40px;
-  background:white;
-  border:none;
-  outline:none;
-  border-radius:40px;
-  cursor:pointer;
-  font-size:1em;
-  color:black;
-  font-weight:500;
+#registerButton {
+  width: 100%;
+  height: 40px;
+  background: white;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 1em;
+  color: black;
+  font-weight: 500;
 }
 
-.login-link{
-  font-size:.9em;
-  color:white;
-  text-align:center;
-  margin:25px 0 10px;
+.login-link {
+  font-size: .9em;
+  color: white;
+  text-align: center;
+  margin: 25px 0 10px;
 }
 
-.login-link p a{
-  color:white;
-  text-decoration:none;
-  font-weight:600;
+.login-link p a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.login-link p a:hover{
-  text-decoration:underline;
+.login-link p a:hover {
+  text-decoration: underline;
 }
 
-@media(max-width:360px){
-  .register-box{
-      width:100%;
-      height:100vh;
-      border:none;
-      border-radius:0;
+@media(max-width: 360px) {
+  .register-box {
+    width: 100%;
+    height: 100vh;
+    border: none;
+    border-radius: 0;
   }
 }
 
-.message{
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%, -50%);
-  padding:20px;
-  border-radius:5px;
-  z-index:1000;
-  text-align:center;
-  width:80%;
-  max-width:400px;
+.message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 1000;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
 }
 
-.message.success{
-  background-color:#d4edda;
-  color:#155724;
-  border:1px solid #c3e6cb;
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
 }
 
-.message.error{
-  background-color:#f8d7da;
-  color:#721c24;
-  border:1px solid #f5c6cb;
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
 }
-
-
-
-
-
-
-
-
-
-
-

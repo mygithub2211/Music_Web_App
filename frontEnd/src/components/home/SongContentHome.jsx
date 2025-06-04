@@ -1,11 +1,12 @@
-import PopularSongHeading  from './PopularSongHeading.jsx'
+import PopularSongHeading from './PopularSongHeading.jsx'
 import SongList from './SongList.jsx'
 
-function SongContentHome(){
-    return(
+function SongContentHome() {
+    return (
         <div id='song_content_home'>
-            <PopularSongHeading/>
-            <SongList/>
+            {/* render popular song heading and song list */}
+            <PopularSongHeading />
+            <SongList />
         </div>
     )
 }

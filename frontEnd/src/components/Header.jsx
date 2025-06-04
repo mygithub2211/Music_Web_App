@@ -1,19 +1,18 @@
-import {useState} from "react"
-import MenuSide from "./MenuSide.jsx"
-import SongSide from "./SongSide.jsx"
+import { useState } from 'react'
+import MenuSide from './MenuSide.jsx'
+import SongSide from './SongSide.jsx'
 
-function Header(){
-    const [setCurrentSong]=useState(null);
+function Header() {
+  const [setCurrentSong] = useState(null) // state placeholder for the current song
 
-    return(
-        <header>
-            <div id="main_for_menu_and_song">
-                <MenuSide/>
-                <SongSide setCurrentSong={setCurrentSong}/>
-            </div>
-       
-        </header>
-    )
+  return (
+    <header>
+      <div id='main_for_menu_and_song'>
+        <MenuSide />
+        <SongSide setCurrentSong={setCurrentSong} />
+      </div>
+    </header>
+  )
 }
 
 export default Header
