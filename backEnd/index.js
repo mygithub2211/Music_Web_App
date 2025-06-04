@@ -118,6 +118,11 @@ app.post('/my_songs', async (req, res) => {
   }
 })
 
+// simple route to check server status
+app.get('/', (req, res) => {
+  res.send('server is running on port 5002')
+})
+
 // start the server
 app.listen(5002, () => {
   console.log('server is running on port 5002')
