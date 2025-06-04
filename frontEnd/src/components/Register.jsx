@@ -91,7 +91,7 @@ function Register() {
           <button type='submit' id='registerButton'>Register</button>
 
           <div className='login-link'>
-            <p>have an account?<a href='/'> log in</a></p>
+            <p>Have an account?<a href='/'> Log In</a></p>
           </div>
 
           {/* success and error messages */}
